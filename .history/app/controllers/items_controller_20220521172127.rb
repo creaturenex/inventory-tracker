@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to inventory_item_url(@inventory), notice: "Item was successfully updated." }
+        format.html { redirect_to item_url(@item), notice: "Item was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = @inventory.items.find(params[:id])
+      @item = Item.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

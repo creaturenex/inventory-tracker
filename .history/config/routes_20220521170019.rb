@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  root 'inventories#index'
+  root 'inventory#index'
+
 end
